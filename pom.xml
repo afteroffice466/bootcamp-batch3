@@ -21,6 +21,13 @@
             <version>7.11.0</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.5.1</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -34,8 +41,7 @@
                     <configuration>
                         <forkCount>0</forkCount>
                         <suiteXmlFiles>
-                            <!-- <suiteXmlFile>src/test/resources/testng_simple_suite.xml</suiteXmlFile> -->
-                            <suiteXmlFile>src/test/resources/testng_parallel_suite.xml</suiteXmlFile>
+                            <suiteXmlFile>${suiteXml}</suiteXmlFile>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>

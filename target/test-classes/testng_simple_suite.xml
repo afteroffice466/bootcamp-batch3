@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="SimpleSuite" verbose="1">
+  <test name="SimpleRegression">
+    <classes>
+      <class name="testng.SimpleTest"/>
+      <class name="testng.AssertTest"/>
+      <class name="testng.DataProviderTest"/>
+      <class name="testng.RetryTest"/>
+    </classes>
+  </test>
+</suite>

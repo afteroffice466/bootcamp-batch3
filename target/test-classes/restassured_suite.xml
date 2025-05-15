@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="RestAssuredSuite" verbose="1" parallel="true" thread-count="5">
+  <test name="RestAssuredRegression">
+    <classes>
+      <class name="restassured.EmployeeTest"/>
+      <class name="restassured.NewEmployeeTest"/>
+    </classes>
+  </test>
+</suite>

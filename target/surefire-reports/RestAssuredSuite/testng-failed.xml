@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="methods" name="Failed suite [RestAssuredSuite]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" parallel="methods" name="RestAssuredRegression(failed)" verbose="0">
+    <classes>
+      <class name="restassured.NewEmployeeTest">
+        <methods>
+          <include name="addEmployeeTest"/>
+          <include name="loginEmployeeTest"/>
+          <include name="deleteEmployeeTest"/>
+        </methods>
+      </class> <!-- restassured.NewEmployeeTest -->
+    </classes>
+  </test> <!-- RestAssuredRegression(failed) -->
+</suite> <!-- Failed suite [RestAssuredSuite] -->
