@@ -38,4 +38,12 @@ reference: https://testng.org/
 
 ### Day 3 - RestAssured
 
-TBD
+#### Change POM configuration - run test suite more flexible
+```<suiteXmlFile>${suiteXml}</suiteXmlFile>```
+```mvn test -DsuiteXml=TEST_SUITE_PATH```
+
+#### Basic rest assured
+```src/test/java/restassured/EmployeeTest.java```
+
+#### E2E rest assured
+```src/test/java/restassured/NewEmployeeTest.java```

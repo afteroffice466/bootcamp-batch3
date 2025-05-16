@@ -17,10 +17,13 @@ public class EmployeeTest {
 
     @BeforeSuite
     public void login() {
+        // Implement body as string
         String body = "{\r\n" + //
                 "    \"email\": \"" + EXPECT_EMAIL + "\",\r\n" + //
                 "    \"password\": \"test\"\r\n" + //
                 "}";
+
+        // Hit api with rest assured and save response to variable res
         Response res = RestAssured
                 .given()
                 .contentType("application/json")
@@ -30,13 +33,17 @@ public class EmployeeTest {
                 .when()
                 .post("https://whitesmokehouse.com/webhook/employee/login");
 
+        // save token to global variable token
         token = res.jsonPath().getString("[0].token");
+
+        // assert token
         Assert.assertNotNull(token);
         System.out.println(token);
     }
 
     @Test
     public void getCurrentEmployeeTest() {
+        // hit endpoint with token with get method
         RestAssured
                 .given()
                 .header(new Header("Authorization", "Bearer " + token))

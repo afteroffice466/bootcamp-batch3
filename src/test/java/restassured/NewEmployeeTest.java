@@ -15,6 +15,7 @@ public class NewEmployeeTest {
 
     @Test
     public void addEmployeeTest() {
+        // First running test because not depends on other test
         System.out.println("addEmployeeTest starting....");
         String body = "{\r\n" + //
                 "    \"email\": \"" + EMAIL + "\",\r\n" + //
@@ -24,6 +25,7 @@ public class NewEmployeeTest {
                 "    \"title\": \"QA\"\r\n" + //
                 "}";
 
+        // Add employee data
         Response res = RestAssured
                 .given()
                 .contentType("application/json")
@@ -35,15 +37,18 @@ public class NewEmployeeTest {
 
         System.out.println(res.prettyPrint());
 
+        // Save to global variable
         String email = res.jsonPath().getString("[0].email");
         String password = res.jsonPath().getString("[0].password_hash");
+
+        // Assert
         Assert.assertEquals(email, EMAIL);
-        ;
         Assert.assertNotNull(password);
     }
 
     @Test(dependsOnMethods = {"addEmployeeTest"})
     public void loginEmployeeTest() {
+        // This test must running after add employee test
         System.out.println("loginEmployeeTest starting....");
         String body = "{\r\n" + //
                 "    \"email\": \"" + EMAIL + "\",\r\n" + //
@@ -65,6 +70,7 @@ public class NewEmployeeTest {
 
     @Test(dependsOnMethods = {"loginEmployeeTest"})
     public void deleteEmployeeTest() {
+        // This test must running after login employee test
         System.out.println("deleteEmployeeTest starting....");
         RestAssured
                 .given()
