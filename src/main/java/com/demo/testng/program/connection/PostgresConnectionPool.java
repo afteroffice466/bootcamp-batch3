@@ -11,7 +11,7 @@ public class PostgresConnectionPool {
 
     static {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:postgresql://45.32.127.251:5433/fillatestdb");
+        config.setJdbcUrl("jdbc:postgresql://155.138.209.217:5433/fillatestdb");
         config.setUsername("fillatestdbuser");
         config.setPassword("fillatestdbpassword");
         config.setMaximumPoolSize(10);
