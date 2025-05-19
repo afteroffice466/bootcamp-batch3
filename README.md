@@ -47,3 +47,6 @@ reference: https://testng.org/
 
 #### E2E rest assured
 ```src/test/java/restassured/NewEmployeeTest.java```
+
+### Day 4 - E2E
+![alt text](image.png)
