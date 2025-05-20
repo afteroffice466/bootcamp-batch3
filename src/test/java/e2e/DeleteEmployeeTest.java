@@ -35,14 +35,14 @@ public class DeleteEmployeeTest {
                 .all()
                 .when()
                 .get(StaticVar.BASE_URL + "/41a9698d-d8b0-42df-9ddc-89c0a1a1aa79/employee/search/"
-                        + StaticVar.fullName);
+                        + StaticVar.employee.getFullName());
 
         System.out.println(res.asPrettyString());
 
         assert res.getStatusCode() == 200 : "Status code search employee must be 200";
-        assert res.jsonPath().getString("[0].query").equals(StaticVar.fullName) : "Query must be same as fullname";
-        assert !res.jsonPath().getString("[0].result.full_name").contains(StaticVar.fullName)
-                : "Fullname not expected, must not contains " + StaticVar.fullName;
+        assert res.jsonPath().getString("[0].query").equals(StaticVar.employee.getFullName()) : "Query must be same as fullname";
+        assert !res.jsonPath().getString("[0].result.full_name").contains(StaticVar.employee.getFullName())
+                : "Fullname not expected, must not contains " + StaticVar.employee.getFullName();
     }
 
     @Test(dependsOnMethods = "DeleteEmployee")
@@ -69,7 +69,7 @@ public class DeleteEmployeeTest {
             if (fullName == null) {
                 break;
             }
-            if (fullName.equals(StaticVar.fullName)) {
+            if (fullName.equals(StaticVar.employee.getFullName())) {
                 dataIsFound = true;
             }
             i++;
