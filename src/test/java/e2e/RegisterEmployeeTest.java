@@ -16,7 +16,12 @@ import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import testng.retry_mecanism.RetrySample;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class RegisterEmployeeTest {
+    private static final Logger logger = LoggerFactory.getLogger(RegisterEmployeeTest.class);
+
     @BeforeSuite
     public void beforeSuite() {
         System.out.println("Suite E2E running...");
@@ -37,16 +42,9 @@ public class RegisterEmployeeTest {
         StaticVar.employee.setTitle("QA");
     }
 
-    @Test(retryAnalyzer = RetrySample.class)
+    @Test(retryAnalyzer = RetrySample.class, description = "this is register description")
     public void addEmployee() throws Exception {
-        System.out.println("addEmployee starting....");
-        // String body = "{\r\n" + //
-        // " \"email\": \"" + StaticVar.email + "\",\r\n" + //
-        // " \"password\": \"" + StaticVar.password + "\",\r\n" + //
-        // " \"full_name\": \"" + StaticVar.fullName + "\",\r\n" + //
-        // " \"department\": \"" + StaticVar.department + "\",\r\n" + //
-        // " \"title\": \"" + StaticVar.title + "\"\r\n" + //
-        // "}";
+        logger.info("add employee test case running...");
 
         ObjectMapper objectMapper = new ObjectMapper();
         String body = objectMapper.writeValueAsString(StaticVar.employee);
@@ -56,12 +54,10 @@ public class RegisterEmployeeTest {
                 .given()
                 .contentType("application/json")
                 .body(body)
-                .log()
-                .all()
                 .when()
                 .post(StaticVar.BASE_URL + "/employee/add");
 
-        System.out.println(res.asPrettyString());
+        logger.debug(res.asPrettyString());
 
         assert res.getStatusCode() == 200 : "Status code add employee must be 200";
 
@@ -73,15 +69,8 @@ public class RegisterEmployeeTest {
                 });
 
         assert addEmployeeResponse.size() > 0 : "Data is empty";
-        assert addEmployeeResponse.get(0).getEmail().equals(StaticVar.employee.getEmail()) : "email not expected";
+        assert addEmployeeResponse.get(0).getEmail().equals(StaticVar.employee.getEmail()+"xx") : "email not expected";
         assert addEmployeeResponse.get(0).getPasswordHash() != null : "password hash is null";
-
-        // assert res.jsonPath().get("[0].email").toString().equals(StaticVar.email);
-        // assert
-        // res.jsonPath().get("[0].full_name").toString().equals(StaticVar.fullName);
-        // assert
-        // res.jsonPath().get("[0].department").toString().equals(StaticVar.department);
-        // assert res.jsonPath().get("[0].title").toString().equals(StaticVar.title);
     }
 
     @Test(dependsOnMethods = "addEmployee")
