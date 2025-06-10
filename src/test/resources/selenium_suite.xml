@@ -3,7 +3,7 @@
 <suite name="SeleniumSuite" verbose="5" parallel="true" thread-count="5">
   <test name="Selenium">
     <classes>
-      <class name="selenium.LocatorSuccessLoginScenario"></class>
+      <class name="selenium.LocatorAdvanceHtmlSelector"></class>
     </classes>
   </test>
 </suite>
