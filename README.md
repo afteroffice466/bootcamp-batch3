@@ -50,3 +50,14 @@ reference: https://testng.org/
 
 ### Day 4 - E2E
 ![alt text](image.png)
+
+### Iterator
+
+Array
+- Array x / List
+    - x[4]
+
+iterator x = 1,2,3,4
+x.next() | 1
+iterator x | 2,3,4
+x.next() | 2
