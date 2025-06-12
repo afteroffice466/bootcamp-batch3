@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="SeleniumScenarioSuite" verbose="5" parallel="true" thread-count="5">
+  <test name="SeleniumScenario">
+    <classes>
+      <class name="selenium_scenario.CheckoutFlowE2E"></class>
+    </classes>
+  </test>
+</suite>
