@@ -61,3 +61,7 @@ iterator x = 1,2,3,4
 x.next() | 1
 iterator x | 2,3,4
 x.next() | 2
+
+### PageFactory
+
+![alt text](image-1.png)
