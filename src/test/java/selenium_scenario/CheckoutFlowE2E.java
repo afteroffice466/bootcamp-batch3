@@ -149,10 +149,10 @@ public class CheckoutFlowE2E {
         WebElement titleThanks = webDriver.findElement(By.xpath("//*[contains(text(), 'Thankyou for the order')]"));
 
         Boolean elementIsPresentProductName = wait.until(d -> titleProduct.isDisplayed());
-        Assert.assertFalse(elementIsPresentProductName, "element title product not present");
+        Assert.assertTrue(elementIsPresentProductName, "element title product not present");
 
         Boolean elementIsPresentThanks = wait.until(d -> titleThanks.isDisplayed());
-        Assert.assertFalse(elementIsPresentThanks, "element thanks not present");
+        Assert.assertTrue(elementIsPresentThanks, "element thanks not present");
     }
 
     @AfterSuite

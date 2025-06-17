@@ -12,7 +12,9 @@ import selenium_page_factory.pages.CartPage;
 import selenium_page_factory.pages.CheckoutPage;
 import selenium_page_factory.pages.DashboardPage;
 import selenium_page_factory.pages.LoginPage;
+import selenium_page_factory.pages.OrderPage;
 import selenium_page_factory.pages.ProductDisplayPage;
+import testng.retry_mecanism.RetrySample;
 
 public class CheckoutFlowE2E extends BaseTestSuite {
     public LoginPage loginPage;
@@ -20,7 +22,7 @@ public class CheckoutFlowE2E extends BaseTestSuite {
     public ProductDisplayPage productDisplayPage;
     public CartPage cartPage;
     public CheckoutPage checkoutPage;
-    // init order page
+    public OrderPage orderPage;
 
     @BeforeSuite
     public void setup() {
@@ -32,10 +34,10 @@ public class CheckoutFlowE2E extends BaseTestSuite {
         this.productDisplayPage = new ProductDisplayPage(webDriver, wait);
         this.cartPage = new CartPage(webDriver, wait);
         this.checkoutPage = new CheckoutPage(webDriver, wait);
-        // init order page
+        this.orderPage = new OrderPage(webDriver, wait);
     }
 
-    @Test
+    @Test(retryAnalyzer = RetrySample.class)
     public void doCheckoutFlow() throws InterruptedException {
         loginPage.fillEmail("simanjuntakalbert57@gmail.com");
         loginPage.fillPassword("XBf@rWNvByn!#K8");
@@ -55,7 +57,7 @@ public class CheckoutFlowE2E extends BaseTestSuite {
         checkoutPage.clickRecomendationCountry();
         checkoutPage.clickPlaceOrder();
 
-        // action order page
+        orderPage.verifyOrderCreated("ZARA COAT 3");
 
         Thread.sleep(Duration.ofSeconds(2));
     }

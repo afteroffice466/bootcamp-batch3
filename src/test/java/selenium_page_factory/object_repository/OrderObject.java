@@ -13,7 +13,7 @@ public class OrderObject extends BaseObject {
     public WebElement titleThanks;
 
     public WebElement titleProductDynamic(String productName) {
-        return webDriver.findElement(By.xpath("//h2[contains(text(), '" + productName + "')]"));
+        return webDriver.findElement(By.xpath("//*[contains(text(), '" + productName + "')]"));
     }
 
     public OrderObject(WebDriver webDriver) {
