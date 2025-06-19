@@ -1,5 +1,7 @@
 package selenium_page_factory.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
@@ -22,7 +24,8 @@ public class DashboardPage extends BasePage {
         dashboardObject.inputSearch.sendKeys(Keys.ENTER);
     }
 
-    public void clickButtonViewProduct() {
+    public void clickButtonViewProduct() throws InterruptedException {
+        Thread.sleep(Duration.ofSeconds(1));
         wait.until(d -> dashboardObject.buttonViewProduct.isDisplayed());
         dashboardObject.buttonViewProduct.click();
     }

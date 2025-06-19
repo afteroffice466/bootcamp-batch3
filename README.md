@@ -65,3 +65,9 @@ x.next() | 2
 ### PageFactory
 
 ![alt text](image-1.png)
+
+### Day 13
+- Hooks
+- Properties
+- Pengenalan CI / CD
+![alt text](image-2.png)
