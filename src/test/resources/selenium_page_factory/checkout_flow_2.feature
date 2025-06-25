@@ -7,7 +7,7 @@ Feature: Checkout Flow
   Scenario:
     When Input email "simanjuntakalbert57@gmail.com" and password "XBf@rWNvByn!#K8" in login page for checkout flow
     Then Click login button for checkout flow
-    Then Search product with keyword "ZARA COAT 3" for checkout flow
+    Then Search product with keyword "ZARA COAT 32" for checkout flow
     Then Click view product for checkout flow
     And Verify product name, to make sure the product "ZARA COAT 3" is shown for checkout flow
     Then Click ATC button for checkout flow
