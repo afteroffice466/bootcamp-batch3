@@ -1,5 +1,6 @@
 package selenium_page_factory.test_suites;
 
+import java.io.IOException;
 import java.time.Duration;
 
 import org.testng.annotations.AfterSuite;
@@ -38,7 +39,7 @@ public class CheckoutFlowE2E extends BaseTestSuite {
     }
 
     @Test(retryAnalyzer = RetrySample.class)
-    public void doCheckoutFlow() throws InterruptedException {
+    public void doCheckoutFlow() throws InterruptedException, IOException {
         loginPage.fillEmail("simanjuntakalbert57@gmail.com");
         loginPage.fillPassword("XBf@rWNvByn!#K8");
         loginPage.clickLoginButton();

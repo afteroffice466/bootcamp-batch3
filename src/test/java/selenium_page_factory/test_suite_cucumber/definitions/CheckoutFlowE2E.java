@@ -1,5 +1,7 @@
 package selenium_page_factory.test_suite_cucumber.definitions;
 
+import java.io.IOException;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -29,7 +31,7 @@ public class CheckoutFlowE2E {
     }
 
     @When("Input email {string} and password {string} in login page for checkout flow")
-    public void inputEmailAndPassword(String email, String password) {
+    public void inputEmailAndPassword(String email, String password) throws IOException {
         // loginPage.fillEmail(System.getProperty("email"));
         // Thread.sleep(Duration.ofSeconds(5));
         loginPage.fillEmail(email);

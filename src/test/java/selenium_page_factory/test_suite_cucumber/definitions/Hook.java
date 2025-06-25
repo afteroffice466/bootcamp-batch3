@@ -6,6 +6,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -39,11 +40,13 @@ public class Hook {
 
         if (System.getProperty("browser").equals("chrome")) {
             System.setProperty("webdriver.chrome.driver", currentWorkingDirectory + Env.DRIVER_PATH);
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--headless");
+            Hook.webDriver = new ChromeDriver(chromeOptions);
         } else {
             //
         }
 
-        Hook.webDriver = new ChromeDriver();
         Hook.wait = new WebDriverWait(Hook.webDriver, Duration.ofSeconds(5));
 
         // throw new Error("this sample of error");
